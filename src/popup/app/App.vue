@@ -12,13 +12,15 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
 .main_app {
+  width: 250px;
+  min-height: 50px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: auto;
 }
 </style>
