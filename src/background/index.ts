@@ -1,0 +1,1 @@
+console.log("Hello, This is LinkFox-crx-demo background");

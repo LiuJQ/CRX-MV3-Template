@@ -1,17 +1,31 @@
 {
-    "manifest_version": 3,
-    "name": "LinkFox-Demo",
-    "description": "Demo Chrome Extension Of LinkFox",
-    "version": "0.0.1",
-    "icons": {
-        "16": "assets/images/logo-16.png",
-        "48": "assets/images/logo-48.png",
-        "128": "assets/images/logo-128.png"
-    },
-    "options_page": "options.html",
-    "action": {
-        "default_title": "LinkFox-Demo",
-        "default_icon": "assets/images/linkfox-logo.png",
-        "default_popup": "popup.html"
+  "manifest_version": 3,
+  "name": "LinkFox-Demo",
+  "description": "Demo Chrome Extension Of LinkFox",
+  "version": "0.0.1",
+  "icons": {
+    "16": "assets/images/logo-16.png",
+    "48": "assets/images/logo-48.png",
+    "128": "assets/images/logo-128.png"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "LinkFox-Demo",
+    "default_icon": "assets/images/logo-48.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.amazon.com/*"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "run_at": "document_end"
     }
+  ]
 }

@@ -1,0 +1,28 @@
+{
+  "version": "0.0.1",
+  "data": [
+    {
+      "sid": "s-amazon-listing",
+      "name": "LinkFox Listing",
+      "regx": "/(dp|product)/([A-Z0-9]{10})",
+      "widgetGroup": "Amazon",
+      "nodes": [
+        {
+          "nid": "listing-product",
+          "name": "LinkFox Listing Product Chart",
+          "query": {
+            "type": "query_either",
+            "queries": [
+              "#bottomRow",
+              "#ppd",
+              "div[cel_widget_id*='dpx-books-ppd_csm_instrumentation_wrapper']"
+            ]
+          },
+          "widgets": [
+            "w-linkfox-product-bsr-price-chart"
+          ]
+        }
+      ]
+    }
+  ]
+}

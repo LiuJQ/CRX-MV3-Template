@@ -2,19 +2,19 @@ const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const {defineConfig} = require("@vue/cli-service");
 
-// Generate pages object
-const pagesObj = {};
-const chromeName = ["popup", "options"];
-chromeName.forEach(name => {
-  pagesObj[name] = {
-    entry: `src/${name}/index.ts`,
-    template: "public/index.html",
-    filename: `${name}.html`
-  };
-});
-
 module.exports = defineConfig({
-  pages: pagesObj,
+  pages: {
+    popup: {
+      entry: `src/popup/index.ts`,
+      template: "public/index.html",
+      filename: "popup.html"
+    },
+    options: {
+      entry: `src/options/index.ts`,
+      template: "public/index.html",
+      filename: "options.html"
+    },
+  },
   css: {
     extract: {
       filename: "css/[name].css",
@@ -22,6 +22,13 @@ module.exports = defineConfig({
   },
   configureWebpack: {
     devtool: 'cheap-module-source-map',
+    entry: {
+      content: "./src/content/index.ts",
+      background: "./src/background/index.ts",
+    },
+    output: {
+      filename: "js/[name].js",
+    },
     plugins: [
       new CopyPlugin({
         patterns: [
